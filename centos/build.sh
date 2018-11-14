@@ -6,6 +6,7 @@ mkdir /target
 rpm --nodeps --root /target/ -i http://mirror.centos.org/centos/7/os/x86_64/Packages/centos-release-7-5.1804.el7.centos.x86_64.rpm
 cp -f /etc/resolv.conf /target/etc
 
+sed -i '/nodocs/d' /etc/yum.conf
 yum -q -y --installroot=/target --releasever=7 install yum
 cp -f /etc/yum.conf /target/etc/
 mkdir -p /target/dev
